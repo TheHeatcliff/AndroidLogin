@@ -5,7 +5,7 @@
     android:layout_marginTop="10dip"
     android:background="@drawable/damon">
     <TextView
-        android:id="@+id/tv_un"
+        android:id="@+id/textView_userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="10pt"
@@ -16,42 +16,42 @@
         android:layout_marginLeft="10dip"
         android:text="@string/username"/>
     <EditText
-        android:id="@+id/et_un"
+        android:id="@+id/editText_userName"
         android:layout_width="150dip"
         android:layout_height="wrap_content"
         android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@id/tv_un"
+        android:layout_toRightOf="@id/textView_userName"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/tv_un"
+        android:layout_alignTop="@id/textView_userName"
      	android:inputType="text" />
      <TextView
-        android:id="@+id/tv_pw"
+        android:id="@+id/textView_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="10pt"
         android:textColor="#444444"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/tv_un"
+        android:layout_below="@id/textView_userName"
         android:layout_marginRight="9dip"
         android:layout_marginTop="15dip"
         android:layout_marginLeft="10dip"
         android:text="@string/password"/>
     <EditText
-        android:id="@+id/et_pw"
+        android:id="@+id/editText_password"
         android:layout_width="150dip"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@id/tv_pw"
-        android:layout_alignTop="@id/tv_pw"
-        android:layout_below="@id/et_un"
+        android:layout_toRightOf="@id/textView_password"
+        android:layout_alignTop="@id/textView_password"
+        android:layout_below="@id/editText_userName"
         android:layout_marginLeft="17dip"
         android:inputType="textPassword"/>
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/buton_login"
         android:layout_width="100dip"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_pw"
+        android:layout_below="@id/editText_password"
         android:layout_alignParentLeft="true"
         android:layout_marginTop="15dip"
         android:layout_marginLeft="110dip"
@@ -59,12 +59,12 @@
      
      
      <TextView
-        android:id="@+id/div_error"
+        android:id="@+id/div_response"
         android:layout_width="fill_parent"
         android:layout_height="40dip"
         android:textSize="7pt"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/btn_login"
+        android:layout_below="@id/buton_login"
         android:layout_marginRight="9dip"
         android:layout_marginTop="15dip"
         android:layout_marginLeft="15dip"
