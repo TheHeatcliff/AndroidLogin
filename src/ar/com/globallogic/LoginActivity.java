@@ -1,6 +1,7 @@
 package ar.com.globallogic;
 
-import android.app.Activity;
+import roboguice.activity.RoboActivity;
+import roboguice.inject.InjectView;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,39 +11,37 @@ import android.widget.EditText;
 import android.widget.TextView;
 import ar.com.globallogic.services.DummyAuthService;
 import ar.com.globallogic.services.IAuthenticationService;
+import ar.com.globallogic.services.SpringAuthenticationService;
 
 /**
  * 
  * @author ngonzalez
  * First Fucking Login 
  */
-public class LoginActivity extends Activity {
+public class LoginActivity extends RoboActivity {
 
 	 protected static final String TAG = LoginActivity.class.getSimpleName();
 	
 	 private IAuthenticationService authenticationService;
 	
+	 @InjectView(R.id.editText_userName)
 	 private EditText userName;
-	 
+	  
+	 @InjectView(R.id.editText_password)
 	 private EditText password;
 	 
+	 @InjectView(R.id.div_response)
 	 private TextView reponse;
 	 
+	 @InjectView(R.id.buton_login)
 	 private Button loginButton;
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         
 		super.onCreate(savedInstanceState);
-		
 		authenticationService = new DummyAuthService();
-        
 		setContentView(R.layout.activity_login);
-        
-		userName = (EditText) findViewById(R.id.editText_userName);
-        password = (EditText) findViewById(R.id.editText_password);
-        reponse = (TextView) findViewById(R.id.div_response);
-        loginButton = (Button) findViewById(R.id.buton_login);
         loginButton.setOnClickListener(new LoginListener());
 		
     }

@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
-import android.os.Message;
+import android.app.Application;
 
 public class SpringAuthenticationService implements IAuthenticationService{
 
@@ -34,7 +34,7 @@ public class SpringAuthenticationService implements IAuthenticationService{
 		
 		restTemplate.getMessageConverters().add(new MappingJacksonHttpMessageConverter());
 		
-		ResponseEntity<Message> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<Object>(requestHeaders), Message.class);
+		ResponseEntity<Application> response = restTemplate.exchange(url, HttpMethod.GET, new HttpEntity<Object>(requestHeaders), Application.class);
 		
 		if (!response.getStatusCode().equals(HttpStatus.ACCEPTED)){
 			throw new Exception("Invalid credentials");

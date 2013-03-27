@@ -9,27 +9,127 @@
       
   </properties>
 
-
 	<dependencies>
-		<dependency>
-		    <groupId>org.springframework.android</groupId>
-		    <artifactId>spring-android-rest-template</artifactId>
-		    <version>${spring.android.version}</version>
-		</dependency>
+			<dependency>
+			    <groupId>org.springframework.android</groupId>
+			    <artifactId>spring-android-rest-template</artifactId>
+			    <version>${spring.android.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.springframework.android</groupId>
+			    <artifactId>spring-android-core</artifactId>
+			    <version>${spring.android.version}</version>
+			</dependency>
+			
+			<dependency>
+			   <groupId>org.springframework.android</groupId>
+			   <artifactId>spring-android-auth</artifactId>
+			   <version>${spring.android.version}</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>com.google.inject</groupId>
+				<artifactId>guice</artifactId>
+				<version>2.0-no_aop</version>
+			</dependency>
+			<dependency>
+				<groupId>org.roboguice</groupId>
+				<artifactId>roboguice</artifactId>
+				<version>2.0</version>
+			</dependency>
+			
+			<dependency>
+	  			<groupId>javax.inject</groupId>
+	  			<artifactId>javax.inject</artifactId>
+	 			<version>1</version>
+			</dependency>		
 		
-		<dependency>
-		    <groupId>org.springframework.android</groupId>
-		    <artifactId>spring-android-core</artifactId>
-		    <version>${spring.android.version}</version>
-		</dependency>
+		</dependencies>
 		
-		<dependency>
-		   <groupId>org.springframework.android</groupId>
-		   <artifactId>spring-android-auth</artifactId>
-		   <version>${spring.android.version}</version>
-		</dependency>
+		
 	
-	</dependencies>
+	<build>
+		<plugins>
+		    
+		    <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>	
+	    
+	    <plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.ant</groupId>
+						<artifactId>ant-jsch</artifactId>
+						<version>1.7.1</version>
+					</dependency>
+					<dependency>
+						<groupId>com.jcraft</groupId>
+						<artifactId>jsch</artifactId>
+						<version>0.1.41</version>
+					</dependency>
+				</dependencies>
+				</plugin>
+	
+		<plugin>
+			<artifactId>maven-antrun-plugin</artifactId>
+			 <version>1.7</version>		
+			<executions>
+				<execution>
+					<id>move-jars</id>
+					<phase>prepare-package</phase>
+					<inherited>false</inherited>
+	
+					<configuration>
+						<target>
+						    <copy file='${javax.inject:javax.inject:jar}' todir="libs"/>
+						    <copy file='${com.google.inject:guice:jar}' todir="libs"/>
+						    <copy file='${org.roboguice:roboguice:jar}' todir="libs"/>
+						    <copy file='${org.springframework.android:spring-android-auth:jar}' todir="libs"/>
+						    <copy file='${org.springframework.android:spring-android-core:jar}' todir="libs"/>
+						    <copy file='${org.springframework.android:spring-android-rest-template:jar}' todir="libs"/>
+						    <copy file='${javax.inject:javax.inject:jar}' todir="libs"/>
+
+<!-- 							<property name="compile_classpath" refid="maven.compile.classpath"/> -->
+<!--                 			<property name="runtime_classpath" refid="maven.runtime.classpath"/> -->
+<!--                 			<property name="test_classpath" refid="maven.test.classpath"/> -->
+<!--                 			<property name="plugin_classpath" refid="maven.plugin.classpath"/> -->
+
+<!--                 			<echo message="compile classpath: ${compile_classpath}"/> -->
+<!--                 			<echo message="runtime classpath: ${runtime_classpath}"/> -->
+<!--                 			<echo message="test classpath:    ${test_classpath}"/> -->
+<!--                 			<echo message="plugin classpath:  ${plugin_classpath}"/>						 -->
+                    	</target>
+					</configuration>
+	
+					<goals>
+						<goal>run</goal>
+					</goals>
+	
+				</execution>
+	
+			</executions>
+			</plugin>
+		</plugins>
+			
+<!-- 		<artifact:dependencies filesetId="dependency.fileset" useScope="runtime"> -->
+<!-- 	 				<dependency groupId="org.springframework.android" artifactId="spring-android-rest-template" version="${spring.android.version}"/> -->
+<!-- 			</artifact:dependencies> -->
+			
+<!-- 			<copy todir="lib"> -->
+<!--   				<fileset refid="dependency.fileset" /> -->
+<!--   				<mapper type="flatten" /> -->
+<!-- 			</copy>	 -->
+	    
+	    
+	</build>
 
 	<repositories>
 	    <repository>
@@ -37,7 +137,7 @@
 		    <name>SpringSource Repository</name>
 		    <url>http://repo.springsource.org/release</url>
 		</repository>
+	    
 	</repositories>
-
 
 </project>

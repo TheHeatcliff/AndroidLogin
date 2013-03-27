@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy todir="libs" file="${javax.inject:javax.inject:jar}"/>
+  <copy todir="libs" file="${com.google.inject:guice:jar}"/>
+  <copy todir="libs" file="${org.roboguice:roboguice:jar}"/>
+  <copy todir="libs" file="${org.springframework.android:spring-android-auth:jar}"/>
+  <copy todir="libs" file="${org.springframework.android:spring-android-core:jar}"/>
+  <copy todir="libs" file="${org.springframework.android:spring-android-rest-template:jar}"/>
+  <copy todir="libs" file="${javax.inject:javax.inject:jar}"/>
+</target>
+</project>
