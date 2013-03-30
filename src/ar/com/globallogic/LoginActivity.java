@@ -11,7 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import ar.com.globallogic.services.DummyAuthService;
 import ar.com.globallogic.services.IAuthenticationService;
-import ar.com.globallogic.services.SpringAuthenticationService;
 
 /**
  * 
