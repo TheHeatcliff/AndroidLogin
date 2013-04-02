@@ -42,7 +42,6 @@ public class LoginActivity extends RoboActivity {
 		authenticationService = new DummyAuthService();
 		setContentView(R.layout.activity_login);
         loginButton.setOnClickListener(new LoginListener());
-		
     }
 
     @Override
