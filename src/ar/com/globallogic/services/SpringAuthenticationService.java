@@ -13,11 +13,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonHttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 
+import roboguice.inject.InjectResource;
 import android.app.Application;
+import ar.com.globallogic.R;
 
 public class SpringAuthenticationService implements IAuthenticationService{
 
-	//VER COMO INYECTAR ESTAS COSAS
+	@InjectResource(R.string.serverUrl)
 	private String url;
 	
 	public void doLogin(String userName,String password) throws Exception {

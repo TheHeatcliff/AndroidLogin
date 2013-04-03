@@ -7,5 +7,6 @@
     <string name="username">Usename</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="serverUrl">192.168.0.101</string>
     
 </resources>
